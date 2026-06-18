@@ -1,54 +1,143 @@
 # E-Commerce Platform
 
-A modern, responsive e-commerce web application built with React, TypeScript, and Vite, featuring a beautiful UI styled with Tailwind CSS.
 
-## Repository
-[GitHub Repository - sharma171/Ecommerce-platform](https://github.com/sharma171/Ecommerce-platform.git)
+
+This is a frontend e-commerce web app built with React, TypeScript, and Vite. It uses Tailwind CSS for styling and Framer Motion for smooth animations.
+
+
 
 ## Features
-- Fully responsive design (Mobile, Tablet, Desktop)
-- Beautifully crafted UI components (Header, Footer, Product Grid, Categories)
-- Built with React Router for navigation
-- Dark/Light theme context structure included
-- Fast development experience powered by Vite
 
-## Prerequisites
-Before you begin, ensure you have met the following requirements:
-- **Node.js** (v18.0.0 or higher recommended)
-- **npm** (Node Package Manager)
 
-## Getting Started
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+- **Cart System**: Built with React Context API. You can add/remove items and change quantities. It uses `localStorage` so your cart doesn't empty when you refresh the page.
 
-### 1. Clone the repository
+- **Product Listing & Filtering**: Fetches products from the EscuelaJS Fake Store API. You can filter by category, price, and title.
+
+- **Categories**: Browse products through the "Trending Categories" section or expand to see "All Categories".
+
+- **Related Products**: The product detail page shows similar items based on the current category.
+
+- **State Management**: Uses Redux Toolkit to cache data and handle API states.
+
+- **Mobile Friendly**: Fully responsive design. On mobile, there's a handy floating filter button that opens a full-screen menu.
+
+- **Animations**: Added some nice touches with Framer Motion, like page transitions, a sliding cart drawer, and image carousels when you hover over categories.
+
+
+
+## Tech Stack
+
+- React 19 & TypeScript
+
+- Vite
+
+- Tailwind CSS v4
+
+- Redux Toolkit & Context API
+
+- React Router DOM
+
+- Framer Motion
+
+- Cypress for E2E testing
+
+
+
+---
+
+
+
+## Setup Instructions
+
+
+
+Make sure you have Node.js and npm installed.
+
+
+
+**1. Clone the repo**
+
 ```bash
+
 git clone https://github.com/sharma171/Ecommerce-platform.git
+
 cd Ecommerce-platform/ecommerce-app
+
 ```
 
-### 2. Install dependencies
+
+
+**2. Install dependencies**
+
 ```bash
+
 npm install
+
 ```
 
-### 3. Run the development server
+
+
+**3. Start the dev server**
+
 ```bash
+
 npm run dev
+
 ```
 
-The application will start in development mode. Open [http://localhost:5173](http://localhost:5173) (or the port specified in your terminal) to view it in the browser. The page will reload dynamically if you make edits to the code.
+Then open `http://localhost:5173` in your browser.
 
-### 4. Build for production
-To build the app for production (this will bundle React in production mode and optimize the build for the best performance), run:
+
+
+---
+
+
+
+## Testing
+
+
+
+I've set up Cypress to handle basic end-to-end testing (like checking if the cart opens and products load). 
+
+
+
+Make sure your local dev server (`npm run dev`) is running first.
+
+
+
+To open the Cypress UI and watch the tests run:
+
 ```bash
-npm run build
-```
-The build artifacts will be stored in the `dist/` directory.
 
-## Technologies Used
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [React Router](https://reactrouter.com/)
+npm run cypress:open
+
+```
+
+
+
+To run the tests in the terminal without the UI:
+
+```bash
+
+npm run cypress:run
+
+```
+
+
+
+---
+
+
+
+## Build for Production
+
+To create an optimized production build:
+
+```bash
+
+npm run build
+
+```
+
+The compiled files will be saved in the `dist/` folder.
