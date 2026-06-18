@@ -6,7 +6,7 @@ export function withCategoryHover<P extends object>(WrappedComponent: React.Comp
         const [isHovered, setIsHovered] = useState(false);
         const [products, setProducts] = useState<any[]>([]);
         const [isLoading, setIsLoading] = useState(false);
-        const timerRef = useRef<NodeJS.Timeout | null>(null);
+        const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
         const allProducts = useSelector((state: any) => state.ecommerce.allProducts) || [];
 

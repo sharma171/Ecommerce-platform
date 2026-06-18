@@ -6,8 +6,8 @@ export default function ProductCard({ product }: { product: any }) {
     const { addToCart, removeFromCart, cartItems } = useCart();
     const [isHovered, setIsHovered] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
     const images = product.images || [];
 
