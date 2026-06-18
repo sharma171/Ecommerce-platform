@@ -52,15 +52,21 @@ export function withCategoryHover<P extends object>(WrappedComponent: React.Comp
 
         return (
             <div
-                className="relative w-full h-full rounded-2xl overflow-hidden"
+                className="relative w-full h-full rounded-2xl overflow-hidden cursor-pointer"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                onClick={(e) => {
+                    e.preventDefault();
+                    if ((props as any).onClick) {
+                        (props as any).onClick();
+                    }
+                }}
             >
-                <WrappedComponent {...props} />
+                <WrappedComponent {...props} onClick={undefined} />
 
 
                 <div
-                    className={`absolute inset-0 z-20 flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${showOverlay ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                    className={`absolute inset-0 z-20 pointer-events-none flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${showOverlay ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                 >
                     {products.length > 0 && products[0]?.images?.length > 0 && (
                         <div className="w-full h-full relative group/item">

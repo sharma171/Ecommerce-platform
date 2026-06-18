@@ -86,7 +86,7 @@ const ProductCategory = ({ isViewAllMode = false, onViewAll, onCloseViewAll }: P
     }, []);
 
     const handleCategoryClick = (categoryId: number, isViewAllBtn: boolean) => {
-        if (!isViewAllMode && onViewAll) {
+        if (isViewAllBtn && onViewAll) {
             onViewAll();
         } else {
             const params = new URLSearchParams(searchParams);
